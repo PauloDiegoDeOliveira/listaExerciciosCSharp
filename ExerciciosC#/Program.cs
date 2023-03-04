@@ -17,7 +17,7 @@ do
     foreach (char item in titulo)
     {
         Console.Write(item);
-        //Thread.Sleep(1);
+        Thread.Sleep(1);
     }
 
     Console.ForegroundColor = ConsoleColor.White;
@@ -27,6 +27,7 @@ do
     Console.WriteLine("0: Sair do Programa.");
     Console.WriteLine("1: Sorteio.");
     Console.WriteLine("2: Calcular consumo de combustível.");
+    Console.WriteLine("3: Diálogo.");
     numeroExercicio = Convert.ToInt32(Console.ReadLine());
 
     switch (numeroExercicio)
@@ -79,6 +80,43 @@ do
                     double mediaConsumo = (kmFinal - kmInicial) / litrosAbastecidos;
 
                     Console.WriteLine("A média de consumo de combustível é: " + mediaConsumo.ToString("F2") + " km/l");
+                    Console.ReadLine();
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Aperte ENTER para voltar ao menu!");
+                    Console.ReadLine();
+                    tenteNovamente = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Por favor digite apenas números inteiros!");
+                    Thread.Sleep(1200);
+                    Console.Clear();
+                }
+            }
+            break;
+
+        case 3:
+            tenteNovamente = true;
+            Console.Clear();
+            while (tenteNovamente)
+            {
+                try
+                {
+                    Console.WriteLine("Olá, qual é o seu nome?");
+                    string nome = Console.ReadLine();
+
+                    Console.WriteLine($"Bem-vindo(a), {nome}! Qual é a sua idade?");
+                    int idade = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine($"Legal, então você tem {idade} anos. Eu sou o C Sharp. Prazer em conhecê-lo(a)!");
+
+                    Console.WriteLine("E você, como está se sentindo hoje?");
+                    string sentimento = Console.ReadLine();
+
+                    Console.WriteLine($"Entendi, você está se sentindo {sentimento}. Espero que seu dia melhore!");
+
+                    Console.WriteLine("Bem, foi bom conversar com você. Tchau!");
                     Console.ReadLine();
 
                     Console.ForegroundColor = ConsoleColor.Blue;
