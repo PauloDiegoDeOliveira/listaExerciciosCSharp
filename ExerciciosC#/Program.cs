@@ -67,15 +67,19 @@ do
             {
                 try
                 {
-                    Console.WriteLine("Informe a quantidade de litros abastecidos:");
+                    Console.WriteLine("Digite a quilometragem inicial:");
+                    double kmInicial = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Digite a quilometragem final:");
+                    double kmFinal = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Digite a quantidade de combustível abastecida (em litros):");
                     double litrosAbastecidos = double.Parse(Console.ReadLine());
 
-                    Console.WriteLine("Informe a quilometragem percorrida:");
-                    double quilometragemPercorrida = double.Parse(Console.ReadLine());
+                    double mediaConsumo = (kmFinal - kmInicial) / litrosAbastecidos;
 
-                    double mediaConsumo = quilometragemPercorrida / litrosAbastecidos;
-
-                    Console.WriteLine("A média de consumo de combustível é: " + mediaConsumo + " km/l");
+                    Console.WriteLine("A média de consumo de combustível é: " + mediaConsumo.ToString("F2") + " km/l");
+                    Console.ReadLine();
 
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Aperte ENTER para voltar ao menu!");
