@@ -26,6 +26,7 @@ do
     bool tenteNovamente;
     Console.WriteLine("0: Sair do Programa.");
     Console.WriteLine("1: Sorteio.");
+    Console.WriteLine("2: Calcular consumo de combustível.");
     numeroExercicio = Convert.ToInt32(Console.ReadLine());
 
     switch (numeroExercicio)
@@ -44,6 +45,37 @@ do
                     Random aleatorio = new();
                     string sorteio = nomes[aleatorio.Next(nomes.Length)];
                     Console.WriteLine("O nome sorteado é: " + sorteio);
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Aperte ENTER para voltar ao menu!");
+                    Console.ReadLine();
+                    tenteNovamente = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Por favor digite apenas números inteiros!");
+                    Thread.Sleep(1200);
+                    Console.Clear();
+                }
+            }
+            break;
+
+        case 2:
+            tenteNovamente = true;
+            Console.Clear();
+            while (tenteNovamente)
+            {
+                try
+                {
+                    Console.WriteLine("Informe a quantidade de litros abastecidos:");
+                    double litrosAbastecidos = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Informe a quilometragem percorrida:");
+                    double quilometragemPercorrida = double.Parse(Console.ReadLine());
+
+                    double mediaConsumo = quilometragemPercorrida / litrosAbastecidos;
+
+                    Console.WriteLine("A média de consumo de combustível é: " + mediaConsumo + " km/l");
 
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Aperte ENTER para voltar ao menu!");
