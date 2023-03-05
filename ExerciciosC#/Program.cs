@@ -1,4 +1,6 @@
-﻿int numeroExercicio;
+﻿using ExerciciosCSharp;
+
+int numeroExercicio;
 
 do
 {
@@ -6,28 +8,29 @@ do
     Console.ForegroundColor = ConsoleColor.Blue;
 
     string titulo = @"
-                              _    _      _ _         __          __        _     _ _
-                             | |  | |    | | |        \ \        / /       | |   | | |
-                             | |__| | ___| | | ___     \ \  /\  / /__  _ __| | __| | |
-                             |  __  |/ _ \ | |/ _ \     \ \/  \/ / _ \| '__| |/ _` | |
-                             | |  | |  __/ | | (_) |     \  /\  / (_) | |  | | (_| |_|
-                             |_|  |_|\___|_|_|\___( )     \/  \/ \___/|_|  |_|\__,_(_)
+          _    _      _ _         __          __        _     _ _
+         | |  | |    | | |        \ \        / /       | |   | | |
+         | |__| | ___| | | ___     \ \  /\  / /__  _ __| | __| | |
+         |  __  |/ _ \ | |/ _ \     \ \/  \/ / _ \| '__| |/ _` | |
+         | |  | |  __/ | | (_) |     \  /\  / (_) | |  | | (_| |_|
+         |_|  |_|\___|_|_|\___( )     \/  \/ \___/|_|  |_|\__,_(_)
+
     ";
 
     foreach (char item in titulo)
     {
         Console.Write(item);
-        Thread.Sleep(1);
+        //Thread.Sleep(1);
     }
 
     Console.ForegroundColor = ConsoleColor.White;
-    Thread.Sleep(500);
 
     bool tenteNovamente;
-    Console.WriteLine("0: Sair do Programa.");
-    Console.WriteLine("1: Sorteio.");
-    Console.WriteLine("2: Calcular consumo de combustível.");
-    Console.WriteLine("3: Diálogo.");
+    Console.WriteLine("0: Sair do Programa");
+    Console.WriteLine("1: Sorteio");
+    Console.WriteLine("2: Calcular consumo de combustível");
+    Console.WriteLine("3: Diálogo");
+    Console.WriteLine("4: Calculadora");
     numeroExercicio = Convert.ToInt32(Console.ReadLine());
 
     switch (numeroExercicio)
@@ -55,7 +58,7 @@ do
                 catch (Exception)
                 {
                     Console.WriteLine("Por favor digite apenas números inteiros!");
-                    Thread.Sleep(1200);
+                    Thread.Sleep(1);
                     Console.Clear();
                 }
             }
@@ -90,7 +93,7 @@ do
                 catch (Exception)
                 {
                     Console.WriteLine("Por favor digite apenas números inteiros!");
-                    Thread.Sleep(1200);
+                    Thread.Sleep(1);
                     Console.Clear();
                 }
             }
@@ -127,7 +130,58 @@ do
                 catch (Exception)
                 {
                     Console.WriteLine("Por favor digite apenas números inteiros!");
-                    Thread.Sleep(1200);
+                    Thread.Sleep(1);
+                    Console.Clear();
+                }
+            }
+            break;
+
+        case 4:
+            tenteNovamente = true;
+            Console.Clear();
+            while (tenteNovamente)
+            {
+                try
+                {
+                    Calculadora.Menu();
+
+                    string opcao = Console.ReadLine();
+
+                    switch (opcao)
+                    {
+                        case "1":
+                            Calculadora.Somar();
+                            break;
+
+                        case "2":
+                            Calculadora.Subtrair();
+                            break;
+
+                        case "3":
+                            Calculadora.Multiplicar();
+                            break;
+
+                        case "4":
+                            Calculadora.Dividir();
+                            break;
+
+                        case "0":
+                            break;
+
+                        default:
+                            Calculadora.Menu();
+                            break;
+                    }
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Aperte ENTER para voltar ao menu!");
+                    Console.ReadLine();
+                    tenteNovamente = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Por favor digite apenas números inteiros!");
+                    Thread.Sleep(1);
                     Console.Clear();
                 }
             }
