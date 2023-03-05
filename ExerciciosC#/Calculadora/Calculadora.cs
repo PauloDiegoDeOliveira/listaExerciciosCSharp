@@ -1,4 +1,4 @@
-﻿namespace ExerciciosCSharp
+﻿namespace ExerciciosCSharp.Calculadora
 {
     public class Calculadora
     {

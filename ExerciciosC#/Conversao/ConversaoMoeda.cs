@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
+using ExerciciosCSharp.Moeda;
 
-namespace ExerciciosCSharp
+namespace ExerciciosCSharp.Conversao
 {
     public class ConversaoMoeda
     {

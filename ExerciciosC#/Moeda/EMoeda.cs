@@ -1,4 +1,4 @@
-﻿namespace ExerciciosCSharp
+﻿namespace ExerciciosCSharp.Moeda
 {
     public enum EMoeda
     {

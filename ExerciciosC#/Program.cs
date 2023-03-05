@@ -1,4 +1,6 @@
-﻿using ExerciciosCSharp;
+﻿using ExerciciosCSharp.Calculadora;
+using ExerciciosCSharp.Conversao;
+using ExerciciosCSharp.Moeda;
 
 int numeroExercicio;
 
