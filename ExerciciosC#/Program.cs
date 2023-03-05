@@ -28,6 +28,7 @@ do
     Console.ForegroundColor = ConsoleColor.White;
 
     bool tenteNovamente;
+    Console.SetCursorPosition(0, Console.CursorTop); // Posicionar o cursor na posição desejada antes de imprimir o texto.
     Console.WriteLine("0: Sair do Programa");
     Console.WriteLine("1: Sorteio");
     Console.WriteLine("2: Calcular consumo de combustível");
