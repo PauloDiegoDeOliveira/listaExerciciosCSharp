@@ -196,7 +196,7 @@ do
                 try
                 {
                     Console.Clear();
-                    var conversaoMoeda = new ConversaoMoeda(EMoeda.Real);
+                    ConversaoMoeda conversaoMoeda = new(EMoeda.Real);
                     Console.WriteLine("Você está usando a moeda Real (BLR).");
                     EMoeda tipoMoedaAConverter = ConversaoMoeda.EscolherMoedaConversao();
                     decimal valorEmRealParaConverter = ConversaoMoeda.LerQuantidadeConverter();

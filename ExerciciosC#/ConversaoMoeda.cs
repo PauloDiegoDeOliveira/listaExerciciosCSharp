@@ -14,16 +14,18 @@ namespace ExerciciosCSharp
         /// Contém a lista com os valores de cada moeda em real (BLR)
         /// </summary>
         /// <value></value>
-        private Dictionary<EMoeda, decimal> ValoresMoedas
+        private static Dictionary<EMoeda, decimal> ValoresMoedas
         {
             get
             {
-                var dicionarioValoresMoedas = new Dictionary<EMoeda, decimal>();
-                dicionarioValoresMoedas.Add(EMoeda.Real, 1m);
-                dicionarioValoresMoedas.Add(EMoeda.Dolar, 5.20m);
-                dicionarioValoresMoedas.Add(EMoeda.Euro, 6.20m);
-                dicionarioValoresMoedas.Add(EMoeda.Iene, 0.052m);
-                dicionarioValoresMoedas.Add(EMoeda.Libra, 6.95m);
+                Dictionary<EMoeda, decimal> dicionarioValoresMoedas = new()
+                {
+                    { EMoeda.Real, 1m },
+                    { EMoeda.Dolar, 5.20m },
+                    { EMoeda.Euro, 6.20m },
+                    { EMoeda.Iene, 0.052m },
+                    { EMoeda.Libra, 6.95m }
+                };
 
                 return dicionarioValoresMoedas;
             }
@@ -37,13 +39,14 @@ namespace ExerciciosCSharp
         {
             get
             {
-                var dicionarioCultureMoedas = new Dictionary<EMoeda, CultureInfo>();
-
-                dicionarioCultureMoedas.Add(EMoeda.Real, CultureInfo.CreateSpecificCulture("pt-BR"));
-                dicionarioCultureMoedas.Add(EMoeda.Dolar, CultureInfo.CreateSpecificCulture("en-US"));
-                dicionarioCultureMoedas.Add(EMoeda.Euro, CultureInfo.CreateSpecificCulture("fr-FR")); // pode ser utilizado outras cultures da europa
-                dicionarioCultureMoedas.Add(EMoeda.Iene, CultureInfo.CreateSpecificCulture("jp-JP"));
-                dicionarioCultureMoedas.Add(EMoeda.Libra, CultureInfo.CreateSpecificCulture("en-GB"));
+                Dictionary<EMoeda, CultureInfo> dicionarioCultureMoedas = new()
+                {
+                    { EMoeda.Real, CultureInfo.CreateSpecificCulture("pt-BR") },
+                    { EMoeda.Dolar, CultureInfo.CreateSpecificCulture("en-US") },
+                    { EMoeda.Euro, CultureInfo.CreateSpecificCulture("fr-FR") }, // pode ser utilizado outras cultures da europa
+                    { EMoeda.Iene, CultureInfo.CreateSpecificCulture("jp-JP") },
+                    { EMoeda.Libra, CultureInfo.CreateSpecificCulture("en-GB") }
+                };
 
                 return dicionarioCultureMoedas;
             }
@@ -71,7 +74,7 @@ namespace ExerciciosCSharp
 
         public CultureInfo BuscarCultureMoeda(EMoeda Moeda) => CultureMoedas.GetValueOrDefault(Moeda);
 
-        private decimal BuscarValorMoeda(EMoeda Moeda) => ValoresMoedas.GetValueOrDefault(Moeda);
+        private static decimal BuscarValorMoeda(EMoeda Moeda) => ValoresMoedas.GetValueOrDefault(Moeda);
 
         public static EMoeda EscolherMoedaConversao()
         {
