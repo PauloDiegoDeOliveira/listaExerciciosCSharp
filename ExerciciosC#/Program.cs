@@ -1,6 +1,7 @@
 ﻿using ExerciciosCSharp.Calculadora;
 using ExerciciosCSharp.Conversao;
 using ExerciciosCSharp.Moeda;
+using ExerciciosCSharp.Ordenar;
 
 int numeroExercicio;
 
@@ -35,6 +36,7 @@ do
     Console.WriteLine("3: Diálogo");
     Console.WriteLine("4: Calculadora");
     Console.WriteLine("5: Conversão de moedas");
+    Console.WriteLine("6: Ordenar arrays em C#");
     numeroExercicio = Convert.ToInt32(Console.ReadLine());
 
     switch (numeroExercicio)
@@ -49,7 +51,7 @@ do
             {
                 try
                 {
-                    string[] nomes = { "Gustavo C", "Gustavo A", "José", "Diego", "Fickert", "Tulio", "Paulo" };
+                    string[] nomes = { "Gustavo C", "Gustavo A", "José", "Diego", "Fickert", "Tulio", "Paulo D", "Paulo C", "Antonio", "Rogerio", "Daniel" };
                     Random aleatorio = new();
                     string sorteio = nomes[aleatorio.Next(nomes.Length)];
                     Console.WriteLine("O nome sorteado é: " + sorteio);
@@ -207,6 +209,53 @@ do
 
                     Console.WriteLine($@"{valorEmRealParaConverter.ToString("C", conversaoMoeda.BuscarCultureMoeda(EMoeda.Real))} convertido para {tipoMoedaAConverter.ToString()} é: ");
                     Console.WriteLine($@"{valorConvertido.ToString("C", conversaoMoeda.BuscarCultureMoeda(tipoMoedaAConverter))}");
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Aperte ENTER para voltar ao menu!");
+                    Console.ReadLine();
+                    tenteNovamente = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Por favor digite apenas números inteiros!");
+                    Thread.Sleep(1);
+                    Console.Clear();
+                }
+            }
+            break;
+
+        case 6:
+            tenteNovamente = true;
+            Console.Clear();
+            while (tenteNovamente)
+            {
+                try
+                {
+                    Ordenar.Menu();
+
+                    string opcao = Console.ReadLine();
+
+                    switch (opcao)
+                    {
+                        case "1":
+                            Ordenar.Crescente();
+                            break;
+
+                        case "2":
+                            Ordenar.Decrescente();
+                            break;
+
+                        case "3":
+                            Ordenar.Aleatoria();
+                            break;
+
+                        case "0":
+                            break;
+
+                        default:
+                            Ordenar.Menu();
+                            break;
+                    }
 
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Aperte ENTER para voltar ao menu!");
