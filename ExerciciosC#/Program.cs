@@ -31,6 +31,7 @@ do
     Console.WriteLine("2: Calcular consumo de combustível");
     Console.WriteLine("3: Diálogo");
     Console.WriteLine("4: Calculadora");
+    Console.WriteLine("5: Conversão de moedas");
     numeroExercicio = Convert.ToInt32(Console.ReadLine());
 
     switch (numeroExercicio)
@@ -172,6 +173,37 @@ do
                             Calculadora.Menu();
                             break;
                     }
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Aperte ENTER para voltar ao menu!");
+                    Console.ReadLine();
+                    tenteNovamente = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Por favor digite apenas números inteiros!");
+                    Thread.Sleep(1);
+                    Console.Clear();
+                }
+            }
+            break;
+
+        case 5:
+            tenteNovamente = true;
+            Console.Clear();
+            while (tenteNovamente)
+            {
+                try
+                {
+                    Console.Clear();
+                    var conversaoMoeda = new ConversaoMoeda(EMoeda.Real);
+                    Console.WriteLine("Você está usando a moeda Real (BLR).");
+                    EMoeda tipoMoedaAConverter = ConversaoMoeda.EscolherMoedaConversao();
+                    decimal valorEmRealParaConverter = ConversaoMoeda.LerQuantidadeConverter();
+                    decimal valorConvertido = conversaoMoeda.Converter(tipoMoedaAConverter, valorEmRealParaConverter);
+
+                    Console.WriteLine($@"{valorEmRealParaConverter.ToString("C", conversaoMoeda.BuscarCultureMoeda(EMoeda.Real))} convertido para {tipoMoedaAConverter.ToString()} é: ");
+                    Console.WriteLine($@"{valorConvertido.ToString("C", conversaoMoeda.BuscarCultureMoeda(tipoMoedaAConverter))}");
 
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Aperte ENTER para voltar ao menu!");
