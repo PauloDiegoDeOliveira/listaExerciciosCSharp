@@ -20,7 +20,7 @@ do
     foreach (char item in titulo)
     {
         Console.Write(item);
-        //Thread.Sleep(1);
+        Thread.Sleep(1);
     }
 
     Console.ForegroundColor = ConsoleColor.White;
