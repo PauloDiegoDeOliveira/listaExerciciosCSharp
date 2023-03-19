@@ -37,6 +37,7 @@ do
     Console.WriteLine("4: Calculadora");
     Console.WriteLine("5: Conversão de moedas");
     Console.WriteLine("6: Ordenar arrays em C#");
+    Console.WriteLine("7: Calcular idade");
     numeroExercicio = Convert.ToInt32(Console.ReadLine());
 
     switch (numeroExercicio)
@@ -261,6 +262,36 @@ do
                     Console.WriteLine("Aperte ENTER para voltar ao menu!");
                     Console.ReadLine();
                     tenteNovamente = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Por favor digite apenas números inteiros!");
+                    Thread.Sleep(1);
+                    Console.Clear();
+                }
+            }
+            break;
+
+        case 7:
+            tenteNovamente = true;
+            Console.Clear();
+            while (tenteNovamente)
+            {
+                try
+                {
+                    Console.Write("Digite sua data de nascimento (DD/MM/AAAA): ");
+                    DateTime dataNascimento = DateTime.Parse(Console.ReadLine());
+
+                    DateTime dataAtual = DateTime.Now;
+                    TimeSpan intervalo = dataAtual - dataNascimento;
+
+                    int anos = (int)(intervalo.TotalDays / 365.25);
+                    int meses = (int)((intervalo.TotalDays % 365.25) / 30.4375);
+                    int dias = (int)(intervalo.TotalDays % 30.4375);
+                    int minutos = (int)intervalo.TotalMinutes % 60;
+                    int segundos = (int)intervalo.TotalSeconds % 60;
+
+                    Console.WriteLine($"Sua idade é {anos} anos, {meses} meses, {dias} dias, {minutos} minutos e {segundos} segundos.");
                 }
                 catch (Exception)
                 {
