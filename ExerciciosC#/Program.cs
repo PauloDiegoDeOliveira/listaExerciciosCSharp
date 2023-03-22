@@ -292,6 +292,11 @@ do
                     int segundos = (int)intervalo.TotalSeconds % 60;
 
                     Console.WriteLine($"Sua idade é {anos} anos, {meses} meses, {dias} dias, {minutos} minutos e {segundos} segundos.");
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Aperte ENTER para voltar ao menu!");
+                    Console.ReadLine();
+                    tenteNovamente = false;
                 }
                 catch (Exception)
                 {
